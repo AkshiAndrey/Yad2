@@ -11,6 +11,7 @@ class CoffeeTableApp(QWidget):
         super(CoffeeTableApp, self).__init__()
         uic.loadUi('main.ui', self)
         self.pushButton.clicked.connect(self.run)
+        self.pushButton_2.clicked.connect(self.open_change_form)
         self.run()
         self.setWindowTitle('Кофебаза')
         self.tableWidget.setHorizontalHeaderLabels(["ID", "Название", "Сорта", "Степень обжарки", "молотый / в зернах",
@@ -38,6 +39,16 @@ class CoffeeTableApp(QWidget):
             for col_num, col_data in enumerate(row_data):
                 item = QTableWidgetItem(str(col_data))
                 self.tableWidget.setItem(row_num, col_num, item)
+
+    def open_change_form(self):
+        self.change_form = EditCoffeeForm(self)
+        self.change_form.show()
+
+
+class EditCoffeeForm(QWidget):
+    def __init__(self):
+        super(EditCoffeeForm, self).__init__()
+        uic.initUI('addEditCoffeeForm.ui')
 
 
 if __name__ == '__main__':
