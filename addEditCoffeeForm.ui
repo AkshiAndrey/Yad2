@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>933</width>
-    <height>448</height>
+    <height>461</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,10 +52,10 @@
         <property name="text">
          <string>Новый столбец</string>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Новый столбец</string>
+        <property name="font">
+         <font>
+          <pointsize>6</pointsize>
+         </font>
         </property>
        </column>
        <column>
@@ -122,10 +122,10 @@
         <property name="text">
          <string>Новый столбец</string>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Новый столбец</string>
+        <property name="font">
+         <font>
+          <pointsize>6</pointsize>
+         </font>
         </property>
        </column>
        <column>
@@ -158,6 +158,14 @@
          <string>Новый столбец</string>
         </property>
        </column>
+       <item row="0" column="0">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="flags">
+         <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>

@@ -1,5 +1,16 @@
 PyQT5==5.13.0
 pyqt5-tools==5.13.0.1.5
 PyQT5-stubs==5.14.2.2
-sqlite3
-sys
+
+
+
+
+CREATE TABLE coffee (
+    ID                   INTEGER PRIMARY KEY AUTOINCREMENT,
+    Название             TEXT,
+    [Степень обжарки]    TEXT,
+    [Молотый / в_зернах] TEXT,
+    [Описание вкуса]     TEXT,
+    Цена                 REAL,
+    [Объем упаковки]     INTEGER
+)
