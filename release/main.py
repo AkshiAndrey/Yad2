@@ -1,14 +1,14 @@
 import sys
 import sqlite3
-
-from PyQt5 import uic
+from main_ui import Ui_Form as UI_Form_main
+from addEditCoffeeForm_ui import Ui_Form as UI_Form_edit
 from PyQt5.QtWidgets import QApplication, QWidget, QTableWidgetItem
 
 
-class CoffeeTableApp(QWidget):
+class CoffeeTableApp(QWidget, UI_Form_main):
     def __init__(self):
         super(CoffeeTableApp, self).__init__()
-        uic.loadUi('main.ui', self)
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.run)
         self.pushButton_2.clicked.connect(self.open_change_form)
         self.run()
@@ -23,7 +23,7 @@ class CoffeeTableApp(QWidget):
             if not select:
                 select = 'SELECT * FROM coffee'
             # Подключение к базе данных SQLite
-            self.con = sqlite3.connect('coffee.db')
+            self.con = sqlite3.connect('data/coffee.db')
             cur = self.con.cursor()
 
             # Выполнение запроса для извлечения данных
@@ -47,10 +47,10 @@ class CoffeeTableApp(QWidget):
         self.change_form.show()
 
 
-class EditCoffeeForm(QWidget):
+class EditCoffeeForm(QWidget, UI_Form_edit):
     def __init__(self):
         super(EditCoffeeForm, self).__init__()
-        uic.loadUi('addEditCoffeeForm.ui', self)
+        self.setupUi(self)
         self.titles = ['21', "Название сорта", "Степень обжарки", "молотый / в зернах",
                        'Описание вкуса', 'Цена', '4']
 
@@ -61,7 +61,7 @@ class EditCoffeeForm(QWidget):
         self.tableWidget.resizeColumnsToContents()
         self.tableWidget_2.resizeColumnsToContents()
 
-        self.con = sqlite3.connect('coffee.db')
+        self.con = sqlite3.connect('data/coffee.db')
         cur = self.con.cursor()
         try:
             cur.execute(f"PRAGMA table_info(coffee)")
